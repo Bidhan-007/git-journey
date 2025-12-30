@@ -3,7 +3,7 @@ let btn=document.querySelector("button");
 btn.addEventListener("click",()=>{
     let box=document.querySelector("div");
     box.style.backgroundColor=getRandomColor();
-    box.innerText="Color choosed by Gaurav:";
+    box.innerText="Color choosen:";
 })
 btn.addEventListener("click",()=>{
     let h3=document.querySelector("h3");

@@ -1,18 +1,3 @@
-//let btns=document.querySelectorAll("button");
-// for (let i=1 ;i< btns.length;i++){
-//  btns[i].addEventListener("click",()=>{
-// btns[i].onclick= console.log("Button is clicked now :");
-// })
-// btns[i].addEventListener("mouseenter",()=>{
-//    btns[i].onmouseenter= console.log("You Hover the Key :");
-// })
-// btns[i].addEventListener("dblclick",sayHello);
-//  }
-
-// function sayHello(){
-//     alert("Hello");
-// }
-
 //RandomColorGenerator!
 let btn=document.querySelector("button");
 btn.addEventListener("click",()=>{

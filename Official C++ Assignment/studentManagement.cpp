@@ -16,10 +16,8 @@ public:
         cout << "Enter ID: ";
         cin >> id;
         cin.ignore(numeric_limits<streamsize>::max(), '\n');
-
         cout << "Enter Name: ";
         cin.getline(name, 50);
-
         cout << "Enter GPA: ";
         cin >> gpa;
     }
@@ -88,6 +86,10 @@ void searchStudent() {
 
     Student s;
     ifstream in(FILE_NAME, ios::binary);
+    if (!in) {
+    cout << "File error!\n";
+    return;
+}
     bool found = false;
 
     while (in.read((char*)&s, sizeof(s))) {
@@ -100,7 +102,6 @@ void searchStudent() {
     }
 
     if (!found) cout << "Student not found.\n";
-
     in.close();
 }
 
@@ -129,8 +130,7 @@ void updateStudent() {
     }
 
     if (!found) cout << "Student not found.\n";
-
-    file.close();
+        file.close();  
 }
 
 // ❌ DELETE
@@ -141,6 +141,10 @@ void deleteStudent() {
 
     Student s;
     ifstream in(FILE_NAME, ios::binary);
+    if (!in) {
+    cout << "File error!\n";
+    return;
+}
     ofstream out("temp.dat", ios::binary);
 
     bool found = false;
@@ -164,7 +168,11 @@ void deleteStudent() {
     else
         cout << "Student not found.\n";
 }
-
+void pause(){
+        cout << "\nPress Enter to continue...";
+        cin.ignore();
+        cin.get();
+}
 // 🔹 MENU
 void menu() {
     int choice;
@@ -189,6 +197,7 @@ void menu() {
             case 0: cout << "Exiting...\n"; break;
             default: cout << "Invalid choice!\n";
         }
+        pause();
 
     } while (choice != 0);
 }
@@ -196,5 +205,6 @@ void menu() {
 // 🔹 MAIN
 int main() {
     menu();
+    cin.get();
     return 0;
 }
